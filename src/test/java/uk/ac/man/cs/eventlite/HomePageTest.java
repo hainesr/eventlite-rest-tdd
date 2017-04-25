@@ -27,6 +27,7 @@ public class HomePageTest extends TestParent {
 	public void getJsonRoot() throws Exception {
 		mvc.perform(get("/").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
 		.andExpect(content().contentType(MediaType.APPLICATION_JSON))
-		.andExpect(jsonPath("$.title", equalTo("EventLite Home")));
+		.andExpect(jsonPath("$.title", equalTo("EventLite Home")))
+		.andExpect(jsonPath("$._self", equalTo("http://localhost:8080/")));
 	}
 }
