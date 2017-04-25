@@ -28,6 +28,6 @@ public class HomePageTest extends TestParent {
 		mvc.perform(get("/").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
 		.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 		.andExpect(jsonPath("$.title", equalTo("EventLite Home")))
-		.andExpect(jsonPath("$._self", equalTo("http://localhost:8080/")));
+				.andExpect(jsonPath("$._self", equalTo("http://localhost/")));
 	}
 }
