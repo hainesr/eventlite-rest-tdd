@@ -1,6 +1,7 @@
 package uk.ac.man.cs.eventlite;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Test;
@@ -22,6 +23,7 @@ public class HomePageTest extends TestParent {
 
 	@Test
 	public void getJsonRoot() throws Exception {
-		mvc.perform(get("/").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+		mvc.perform(get("/").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON));
 	}
 }
